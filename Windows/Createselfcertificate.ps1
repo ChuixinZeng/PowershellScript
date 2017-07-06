@@ -1,0 +1,2 @@
+New-SelfSignedCertificate -DnsName "testcomputer", "testcomputer.contoso.com" -CertStoreLocation "cert:\LocalMachine\My"
+New-SelfSignedCertificate -DnsName "testcomputer", "testcomputer.contoso.com", "testcomputer01.contoso.com" -CertStoreLocation "cert:\LocalMachine\My"
