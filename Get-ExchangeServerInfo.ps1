@@ -1,0 +1,1 @@
+﻿Get-ExchangeServer | select name,FQDN,Site,ServerRole,Edition,AdminDisplayVersion | Export-Csv c:\info.csv -Encoding default -NoTypeInformation
