@@ -1,0 +1,2 @@
+# PowerShellGUIForRenamePassword
+这是一个基于Powershell Studio开发的重置用户密码的工具。
