@@ -1,0 +1,2 @@
+﻿Get-ADDomainController -Server "research.fabrikam.com" -Filter { isGlobalCatalog -eq $true -and isReadOnly -eq $true }
+$allDCs | select name,Site,OperatingSystem,IsGlobalCatalog,IPv4Address,hostname,Forest,Domain,DefaultPartition | Export-Csv c:\info.csv -NoTypeInformation -Encoding Default

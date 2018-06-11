@@ -1,0 +1,3 @@
+﻿# 解决了多值属性导出的问题
+import-module activedirectory
+get-aduser -searchbase ‘ou=users,dc=contoso,dc=com’ -searchscope 1 -filter * -properties GivenName, SN, Description, Userprincipalname, Office, Samaccountname, Title, Emailaddress, Company, Department, Officephone, proxyaddresses | select GivenName, SN, Description, Userprincipalname, Office, Samaccountname, Title, Emailaddress, Company, Department, Officephone, @{l=’X.400 EmailAddress’;e={ $_.proxyAddresses | ?{ $_ -Like “*x400*” } }} | export-csv “c:\UserInformation.csv” -notypeinformation -Encoding UTF8
