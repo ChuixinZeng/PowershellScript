@@ -120,4 +120,5 @@ net share tempshare /delete
 
 # 映射网络驱动器
 (New-Object -ComObject WScript.Network).MapNetworkDrive('B:', '\\FPS01\users')
+
 net use B: \\FPS01\users
