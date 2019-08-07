@@ -112,3 +112,49 @@ description : description
 encoded     : encoded
 commentRss  : https://devblogs.microsoft.com/scripting/powertip-determine-your-version-of-powershell-and-host-operating-system/feed/
 #>
+
+# 下面是另外一个示例脚本：https://devblogs.microsoft.com/scripting/script-wars-the-farce-awakens-part-iv/
+
+$ShippingManifest='m.pdf'
+
+$ShippingApplicationRESTAPI='https://shipping.contoso.com/api.svc'
+
+$ShippingApplicationMethod='GET'
+
+$ResultOfShippingQuery=Invoke-RestMethod -Uri $ShippingApplicationRESTAPI -Method $ShippingApplicationMethod -OutFile $ShippingManifest
+
+$ShippingStatus=$ResultOfShippingQuery.result
+
+If ($ShippingStatus -eq 'SUCCESS')
+
+{
+
+$From='shippingsystem@contoso.local'
+
+$Bcc='ship@contoso.local'
+
+$SMTPServer='smtp.contoso.com'
+
+$To=$ResultOfShippingQuery.email
+
+$ShipmentDate=$ResultofShippingQuery.date
+
+$CustomerName=$ResultOfShippingQuery.Name
+
+$Subject='Shipping Confirmation'
+
+$Body="Confirmation of Shipment for Customer $CustomerName - Shipped $ShipmentDate"
+
+Send-MailMessage -Attachments $ShippingManifest -Bcc $Bcc -From $From -Body $Subject -To $To `
+
+-Subject $Subject -SmtpServer $SMTPServer
+
+}
+
+else
+
+{
+
+Write-Host "Tr Err $ShippingStatus"
+
+}
