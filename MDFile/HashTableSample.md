@@ -8,6 +8,5 @@ Get-Process powershell -ComputerName localhost, Server01, Server02 | Format-Tabl
 ## 执行结果
 
 Handles NPM(K)  PM(K)  WS(K)   VM(M) CPU(s)   Id ProcessName MachineName
-------- ------  -----  -----   ----- ------   -- ----------- -----------
     519     27  59912  68124 2101917 0.94   6768 powershell  zengchuixin-pc
     953     48 199904 202744 2101981 9.14   9676 powershell  zengchuixin-pc
