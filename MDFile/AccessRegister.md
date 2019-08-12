@@ -11,3 +11,4 @@ Set-Location cvkey: -PassThru
 ~~~
 
 New-PsDrive cmdlet 仅将新的驱动器添加到当前 Windows PowerShell 会话中。 如果关闭 Windows PowerShell 窗口，则会丢失新的驱动器。 若要保存 Windows PowerShell 驱动器，请使用 Export-Console cmdlet 导出当前 Windows PowerShell 会话，然后使用 PowerShell.exe PSConsoleFile 参数来将其导入。 或者，将新的驱动器添加到 Windows PowerShell 配置文件中。
+
